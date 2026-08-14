@@ -1,0 +1,151 @@
+.suppliers-page{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.suppliers-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.suppliers-header h1{
+    margin:0;
+    font-size:32px;
+    color:#111827;
+}
+
+.suppliers-header p{
+    margin-top:8px;
+    color:#6B7280;
+}
+
+.add-btn{
+    background:#EF3B3A;
+    color:#fff;
+    border:none;
+    padding:14px 24px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.add-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(239,59,58,.25);
+}
+
+.toolbar{
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    border:1px solid #E5E7EB;
+}
+
+.toolbar input{
+    width:380px;
+    padding:12px 16px;
+    border:1px solid #D1D5DB;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+.toolbar input:focus{
+    border-color:#EF3B3A;
+    box-shadow:0 0 0 3px rgba(239,59,58,.12);
+}
+
+.total-items{
+    font-weight:600;
+    color:#374151;
+}
+
+.table-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    border:1px solid #E5E7EB;
+}
+
+.items-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.items-table thead{
+    background:#F9FAFB;
+}
+
+.items-table th{
+    padding:16px;
+    text-align:left;
+    border-bottom:1px solid #E5E7EB;
+}
+
+.items-table td{
+    padding:16px;
+    border-bottom:1px solid #F3F4F6;
+}
+
+.items-table tbody tr:hover{
+    background:#FAFAFA;
+}
+
+.edit-btn{
+    background:#F59E0B;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.edit-btn:hover{
+    background:#D97706;
+}
+
+.delete-btn{
+    background:#DC2626;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.delete-btn:hover{
+    background:#B91C1C;
+}
+
+@media(max-width:900px){
+
+    .suppliers-header,
+    .toolbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .toolbar input{
+        width:100%;
+    }
+
+    .table-card{
+        overflow:auto;
+    }
+
+    .items-table{
+        min-width:1100px;
+    }
+}

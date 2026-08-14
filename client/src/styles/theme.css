@@ -1,0 +1,53 @@
+:root {
+  /* Brand Colors */
+  --primary: #1d4ed8;
+  --primary-dark: #1e3a8a;
+  --secondary: #0f172a;
+
+  /* Status */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+
+  /* Background */
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --sidebar: #ffffff;
+
+  /* Text */
+  --text: #111827;
+  --text-light: #6b7280;
+
+  /* Border */
+  --border: #e5e7eb;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Shadow */
+  --shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+
+  /* Spacing */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 24px;
+
+  /* Font */
+  --font: "Segoe UI", "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}

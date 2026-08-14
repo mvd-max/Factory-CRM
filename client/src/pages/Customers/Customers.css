@@ -1,0 +1,266 @@
+/* =========================
+   CUSTOMERS PAGE
+========================= */
+
+.customers-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* Header */
+
+.customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.customers-header h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Add Button */
+
+.add-btn {
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: .3s;
+  box-shadow: 0 8px 20px rgba(37,99,235,.25);
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Search */
+
+.search-box {
+  width: 340px;
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  outline: none;
+  transition: .3s;
+}
+
+.search-box:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+}
+
+/* Table */
+
+.table-wrapper {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* FIXED HEADER */
+
+.customers-table thead th {
+  background: #2563eb;
+  color: #ffffff !important;
+  padding: 16px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+}
+
+.customers-table tbody td {
+  padding: 16px;
+  color: #334155;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.customers-table tbody tr {
+  transition: .25s;
+}
+
+.customers-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+/* Status */
+
+.status-active {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.status-inactive {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Buttons */
+.edit-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:95px;
+    height:40px;
+    background:#f59e0b;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+    margin-bottom:8px;
+}
+
+.edit-btn:hover{
+    background:#d97706;
+}
+
+.delete-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:95px;
+    height:40px;
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+}
+
+/* Form */
+
+.form-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.customer-form {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.customer-form input,
+.customer-form textarea,
+.customer-form select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: .3s;
+}
+
+.customer-form input:focus,
+.customer-form textarea:focus,
+.customer-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+}
+
+.customer-form textarea {
+  grid-column: span 2;
+  min-height: 100px;
+}
+
+.form-buttons {
+  grid-column: span 2;
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.save-btn {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-btn:hover {
+  background: #15803d;
+}
+
+.cancel-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn:hover {
+  background: #dc2626;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .customers-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+  }
+
+  .search-box{
+    width:100%;
+  }
+
+  .customer-form{
+    grid-template-columns:1fr;
+  }
+
+  .customer-form textarea,
+  .form-buttons{
+    grid-column:span 1;
+  }
+
+  .table-wrapper{
+    overflow-x:auto;
+  }
+
+}

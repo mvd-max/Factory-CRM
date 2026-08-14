@@ -1,0 +1,727 @@
+/* =========================================================
+   STELLAN ERP — ITEMS MANAGEMENT
+   PREMIUM + PERFECT FIT DESIGN
+   ========================================================= */
+
+.items-page {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.items-header {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.items-header h1 {
+    margin: 0;
+
+    font-size: 30px;
+    line-height: 1.2;
+
+    color: #111827;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+.items-header p {
+    margin: 7px 0 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ADD BUTTON
+   ========================================================= */
+
+.add-btn {
+    flex-shrink: 0;
+
+    background: linear-gradient(
+        135deg,
+        #ef3b3a,
+        #dc2626
+    );
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    box-shadow:
+        0 7px 16px rgba(239, 59, 58, 0.18);
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 22px rgba(239, 59, 58, 0.28);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   SEARCH TOOLBAR
+   ========================================================= */
+
+.toolbar {
+    width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 18px 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    box-shadow:
+        0 8px 22px rgba(15, 23, 42, 0.055);
+}
+
+.toolbar input {
+    width: 380px;
+
+    height: 44px;
+
+    box-sizing: border-box;
+
+    padding: 0 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    transition: all 0.2s ease;
+}
+
+.toolbar input::placeholder {
+    color: #9ca3af;
+}
+
+.toolbar input:hover {
+    border-color: #cbd5e1;
+}
+
+.toolbar input:focus {
+    border-color: #ef3b3a;
+
+    box-shadow:
+        0 0 0 3px rgba(239, 59, 58, 0.10);
+}
+
+.total-items {
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE CARD
+   ========================================================= */
+
+.table-card {
+    width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 22px rgba(15, 23, 42, 0.06);
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.items-table {
+    width: 100%;
+
+    max-width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.items-table thead {
+    background: #f8fafc;
+}
+
+.items-table th {
+    padding: 15px 10px;
+
+    text-align: left;
+
+    color: #374151;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.15px;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   TABLE BODY
+   ========================================================= */
+
+.items-table td {
+    padding: 16px 10px;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.items-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.items-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.items-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   COMPANY
+   ========================================================= */
+
+.items-table td:first-child {
+    color: #2563eb;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   COLUMN WIDTHS
+   TOTAL = 100%
+   ========================================================= */
+
+/* Company */
+.items-table th:nth-child(1),
+.items-table td:nth-child(1) {
+    width: 15%;
+}
+
+/* Model */
+.items-table th:nth-child(2),
+.items-table td:nth-child(2) {
+    width: 10%;
+}
+
+/* HSN */
+.items-table th:nth-child(3),
+.items-table td:nth-child(3) {
+    width: 9%;
+}
+
+/* Item Code */
+.items-table th:nth-child(4),
+.items-table td:nth-child(4) {
+    width: 8%;
+}
+
+/* Item Name */
+.items-table th:nth-child(5),
+.items-table td:nth-child(5) {
+    width: 13%;
+}
+
+/* Category */
+.items-table th:nth-child(6),
+.items-table td:nth-child(6) {
+    width: 10%;
+}
+
+/* Stock */
+.items-table th:nth-child(7),
+.items-table td:nth-child(7) {
+    width: 7%;
+}
+
+/* Purchase Price */
+.items-table th:nth-child(8),
+.items-table td:nth-child(8) {
+    width: 10%;
+}
+
+/* Status */
+.items-table th:nth-child(9),
+.items-table td:nth-child(9) {
+    width: 8%;
+}
+
+/* Action */
+.items-table th:nth-child(10),
+.items-table td:nth-child(10) {
+    width: 10%;
+
+    min-width: 145px;
+
+    text-align: center;
+
+    overflow: visible;
+
+    text-overflow: clip;
+}
+
+
+/* =========================================================
+   ACTION AREA
+   ========================================================= */
+
+.items-table td:last-child > div {
+    width: 100%;
+
+    display: flex !important;
+
+    justify-content: center !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    flex-wrap: nowrap !important;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+   ========================================================= */
+
+.edit-btn {
+    flex-shrink: 0;
+
+    background: #f59e0b;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+    background: #d97706;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px rgba(245, 158, 11, 0.20);
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+   ========================================================= */
+
+.delete-btn {
+    flex-shrink: 0;
+
+    background: #ef4444;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px rgba(239, 68, 68, 0.20);
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.status.in {
+    background: #dcfce7;
+
+    color: #15803d;
+
+    border: 1px solid #bbf7d0;
+}
+
+.status.low {
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    border: 1px solid #fecaca;
+}
+
+
+/* =========================================================
+   EMPTY ROW
+   ========================================================= */
+
+.empty-row {
+    text-align: center;
+
+    padding: 45px 20px !important;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.table-card::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-card::-webkit-scrollbar-track {
+    background: #f1f5f9;
+
+    border-radius: 10px;
+}
+
+.table-card::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 10px;
+}
+
+.table-card::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .items-table th {
+        font-size: 12px;
+
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .items-table td {
+        font-size: 13px;
+
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 8px 9px;
+
+        font-size: 12px;
+    }
+
+    .items-table th:nth-child(10),
+    .items-table td:nth-child(10) {
+        min-width: 135px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE / SMALL SCREEN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .items-page {
+        gap: 18px;
+    }
+
+    .items-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .add-btn {
+        width: auto;
+    }
+
+    .toolbar {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .toolbar input {
+        width: 100%;
+    }
+
+    .total-items {
+        align-self: flex-start;
+    }
+
+    .table-card {
+        overflow-x: auto;
+    }
+
+    .items-table {
+        width: 1180px;
+
+        max-width: none;
+
+        table-layout: auto;
+    }
+
+    .items-table th,
+    .items-table td {
+        font-size: 14px;
+
+        padding: 14px 12px;
+    }
+
+    .items-table th:nth-child(10),
+    .items-table td:nth-child(10) {
+        min-width: 155px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .items-header h1 {
+        font-size: 26px;
+    }
+
+    .items-header p {
+        font-size: 13px;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
+    .toolbar {
+        padding: 15px;
+    }
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+    .items-page {
+        padding: 0;
+
+        background: #ffffff;
+    }
+
+    .add-btn,
+    .toolbar {
+        display: none !important;
+    }
+
+    .table-card {
+        box-shadow: none;
+
+        border: 1px solid #ddd;
+
+        overflow: visible;
+    }
+
+    .items-table {
+        width: 100%;
+
+        max-width: 100%;
+
+        table-layout: auto;
+    }
+
+    .items-table th,
+    .items-table td {
+        font-size: 10px;
+
+        padding: 7px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        display: none !important;
+    }
+}
+
+/* EDIT + DELETE - BALANCED SIZE */
+
+.items-table td:last-child .edit-btn,
+.items-table td:last-child .delete-btn {
+    width: auto !important;
+    min-width: 78px !important;
+    max-width: 78px !important;
+
+    padding: 9px 10px !important;
+    height: 38px !important;
+
+    font-size: 13px !important;
+    border-radius: 8px !important;
+
+    box-sizing: border-box;
+}

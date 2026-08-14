@@ -1,0 +1,812 @@
+/* =========================================================
+   STELLAN ERP — PREMIUM INVENTORY REPORTS
+   ========================================================= */
+
+.reports-page {
+  padding: 30px 32px 50px;
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(37, 99, 235, 0.06),
+      transparent 28%
+    ),
+    #f4f7fc;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+
+/* ================= HEADER ================= */
+
+.reports-page h1 {
+  letter-spacing: -0.8px;
+}
+
+.reports-page p {
+  color: #64748b;
+}
+
+/* ================= COMMON CARD ================= */
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5eaf1;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+  height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 11px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 7px 18px rgba(37, 99, 235, 0.22);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn:not(.btn-primary) {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #e2e8f0;
+}
+
+.btn:not(.btn-primary):hover {
+  background: #f8fafc;
+}
+
+/* ================= FILTER TOOLBAR ================= */
+
+.report-toolbar {
+  position: relative;
+  padding: 22px;
+  display: grid;
+  grid-template-columns:
+    1fr
+    1fr
+    1.25fr
+    1.7fr
+    auto
+    auto;
+  gap: 12px;
+  margin-bottom: 25px;
+  background: #ffffff;
+  border: 1px solid #e5eaf1;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.065);
+  box-sizing: border-box;
+}
+
+.report-toolbar::before {
+  content: "REPORT FILTERS";
+  position: absolute;
+  left: 22px;
+  top: -8px;
+  padding: 0 9px;
+  background: #f4f7fc;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.report-toolbar .input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid #dce3ed;
+  border-radius: 11px;
+  background: #fbfcfe;
+  color: #1f2937;
+  font-size: 13.5px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.report-toolbar .input:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.report-toolbar .input:focus {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ================= SUMMARY GRID ================= */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
+/* ================= SUMMARY CARD ================= */
+
+.summary-card {
+  position: relative;
+  min-height: 135px;
+  padding: 21px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+  box-shadow: 0 9px 24px rgba(15, 23, 42, 0.055);
+  transition: 0.2s ease;
+  box-sizing: border-box;
+}
+
+.summary-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #2563eb, #60a5fa);
+}
+
+.summary-card:nth-child(2)::before {
+  background: linear-gradient(180deg, #0f766e, #2dd4bf);
+}
+
+.summary-card:nth-child(3)::before {
+  background: linear-gradient(180deg, #d97706, #fbbf24);
+}
+
+.summary-card:nth-child(4)::before {
+  background: linear-gradient(180deg, #dc2626, #fb7185);
+}
+
+.summary-card:nth-child(5)::before {
+  background: linear-gradient(180deg, #7c3aed, #a78bfa);
+}
+
+.summary-card:nth-child(6)::before {
+  background: linear-gradient(180deg, #0891b2, #67e8f9);
+}
+
+.summary-card:nth-child(7)::before {
+  background: linear-gradient(180deg, #ea580c, #fdba74);
+}
+
+.summary-card:nth-child(8)::before {
+  background: linear-gradient(180deg, #16a34a, #86efac);
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.095);
+}
+
+/* ICON BOX */
+
+.summary-card > div {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 13px;
+  border-radius: 12px;
+  background: #f1f5ff;
+  font-size: 24px;
+}
+
+.summary-card:nth-child(2) > div {
+  background: #ecfdf5;
+}
+
+.summary-card:nth-child(3) > div {
+  background: #fffbeb;
+}
+
+.summary-card:nth-child(4) > div {
+  background: #fff1f2;
+}
+
+.summary-card:nth-child(5) > div {
+  background: #f5f3ff;
+}
+
+.summary-card:nth-child(6) > div {
+  background: #ecfeff;
+}
+
+.summary-card:nth-child(7) > div {
+  background: #fff7ed;
+}
+
+.summary-card:nth-child(8) > div {
+  background: #f0fdf4;
+}
+
+/* CARD TEXT */
+
+.summary-card h4 {
+  margin: 0;
+  color: #64748b;
+  font-size: 12.5px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+}
+
+.summary-card h2 {
+  margin: 6px 0 0;
+  color: #0f172a;
+  font-size: 28px;
+  font-weight: 850;
+  letter-spacing: -0.7px;
+}
+
+/* ================= TABLE CARD ================= */
+
+.table-card {
+  background: #ffffff;
+  border: 1px solid #e4e9f1;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+/* ================= TABLE HEADER ================= */
+
+.table-header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 17px 21px;
+  box-sizing: border-box;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 800;
+  border-bottom: 1px solid #e8edf3;
+  background: linear-gradient(180deg, #ffffff, #fbfcfe);
+}
+
+.table-header h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+/* ================= TABLE BODY ================= */
+
+.table-body {
+  overflow-x: auto;
+}
+
+/* ================= TABLE ================= */
+
+.table-card table {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: collapse;
+}
+
+.table-card thead {
+  background: #f8fafc;
+}
+
+.table-card th {
+  padding: 14px 17px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 11.5px;
+  font-weight: 850;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+  border-bottom: 1px solid #e5eaf1;
+  white-space: nowrap;
+}
+
+.table-card td {
+  padding: 15px 17px;
+  color: #334155;
+  font-size: 13.5px;
+  border-bottom: 1px solid #eef2f7;
+  white-space: nowrap;
+}
+
+.table-card tbody tr {
+  transition: 0.15s ease;
+}
+
+.table-card tbody tr:hover {
+  background: #f8fbff;
+}
+
+.table-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-card td:first-child {
+  color: #1d4ed8;
+  font-weight: 750;
+}
+
+.table-card td:nth-child(6) {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+/* ================= STATUS BADGES ================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  box-sizing: border-box;
+}
+
+.badge-success {
+  background: #ecfdf3;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.badge-warning {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+/* ================= SCROLL ================= */
+
+.table-body::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-body::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.table-body::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1300px) {
+  .summary-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .report-toolbar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .reports-page {
+    padding: 24px 20px 40px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .report-toolbar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .reports-page {
+    padding: 20px 15px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .report-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .report-toolbar .input,
+  .report-toolbar .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   STELLAN ERP — PREMIUM A4 PORTRAIT PRINT
+   ========================================================= */
+
+@media print {
+
+  @page {
+    size: A4 portrait;
+    margin: 9mm 10mm;
+  }
+
+  /* Hide complete application */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Show only report */
+  .reports-page,
+  .reports-page * {
+    visibility: visible !important;
+  }
+
+  .reports-page {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    min-height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+  }
+
+  /* =====================================================
+     HIDE SCREEN-ONLY ELEMENTS
+     ===================================================== */
+
+  .report-toolbar,
+  .report-actions,
+  .btn {
+    display: none !important;
+  }
+
+  /* =====================================================
+     COMPANY HEADER
+     ===================================================== */
+
+  .print-company-header {
+    display: flex !important;
+    align-items: center !important;
+
+    width: 100% !important;
+
+    padding: 0 0 9px 0 !important;
+    margin-bottom: 12px !important;
+
+    border-bottom: 2px solid #1d4ed8 !important;
+
+    box-sizing: border-box !important;
+  }
+
+  .print-logo {
+    width: 145px !important;
+    height: auto !important;
+
+    object-fit: contain !important;
+
+    margin-right: 12px !important;
+  }
+
+  .print-company-info {
+    flex: 1 !important;
+  }
+
+  .print-company-info h2 {
+    margin: 0 !important;
+
+    color: #111827 !important;
+
+    font-size: 15px !important;
+    font-weight: 800 !important;
+  }
+
+  .print-company-info p {
+    margin: 3px 0 0 !important;
+
+    color: #64748b !important;
+
+    font-size: 9px !important;
+  }
+
+  .print-report-info {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: flex-end !important;
+
+    gap: 3px !important;
+  }
+
+  .print-report-info strong {
+    color: #1d4ed8 !important;
+
+    font-size: 13px !important;
+    font-weight: 800 !important;
+  }
+
+  .print-report-info span {
+    color: #64748b !important;
+
+    font-size: 8.5px !important;
+  }
+
+  /* =====================================================
+     FALLBACK HEADER
+     ===================================================== */
+
+  .reports-page > div:first-child {
+    margin-bottom: 10px !important;
+  }
+
+  .reports-page h1 {
+    font-size: 20px !important;
+    margin: 0 !important;
+  }
+
+  /* =====================================================
+     SUMMARY CARDS
+     ===================================================== */
+
+  .summary-grid {
+    display: grid !important;
+
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    gap: 8px !important;
+
+    margin: 0 0 12px 0 !important;
+  }
+
+  .summary-card {
+    min-height: 72px !important;
+
+    padding: 9px 12px !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #dce3eb !important;
+
+    border-radius: 8px !important;
+
+    box-shadow: none !important;
+
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+
+    box-sizing: border-box !important;
+  }
+
+  .summary-card::before {
+    display: none !important;
+  }
+
+  .summary-card > div {
+    width: 27px !important;
+    height: 27px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin-bottom: 4px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 15px !important;
+  }
+
+  .summary-card h4 {
+    margin: 0 !important;
+
+    color: #64748b !important;
+
+    font-size: 8px !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: .25px !important;
+  }
+
+  .summary-card h2 {
+    margin: 2px 0 0 !important;
+
+    color: #111827 !important;
+
+    font-size: 18px !important;
+
+    font-weight: 850 !important;
+  }
+
+  /* =====================================================
+     TABLE CARD
+     ===================================================== */
+
+  .table-card {
+    width: 100% !important;
+
+    margin: 0 0 12px 0 !important;
+
+    background: #ffffff !important;
+
+    border: 1px solid #d9e0e8 !important;
+
+    border-radius: 8px !important;
+
+    box-shadow: none !important;
+
+    overflow: visible !important;
+
+    break-inside: auto !important;
+  }
+
+  .table-header {
+    min-height: auto !important;
+
+    padding: 8px 10px !important;
+
+    background: #f8fafc !important;
+
+    border-bottom: 1px solid #d9e0e8 !important;
+  }
+
+  .table-header h2,
+  .table-header h3 {
+    margin: 0 !important;
+
+    color: #111827 !important;
+
+    font-size: 12px !important;
+
+    font-weight: 800 !important;
+  }
+
+  .table-body {
+    overflow: visible !important;
+  }
+
+  /* =====================================================
+     TABLE
+     ===================================================== */
+
+  .table-card table {
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    border-collapse: collapse !important;
+
+    table-layout: auto !important;
+  }
+
+  .table-card thead {
+    display: table-header-group !important;
+  }
+
+  .table-card th {
+    padding: 6px 6px !important;
+
+    background: #f1f5f9 !important;
+
+    color: #334155 !important;
+
+    font-size: 7.5px !important;
+
+    font-weight: 800 !important;
+
+    text-transform: uppercase !important;
+
+    white-space: nowrap !important;
+
+    border-bottom: 1px solid #cbd5e1 !important;
+  }
+
+  .table-card td {
+    padding: 6px !important;
+
+    color: #374151 !important;
+
+    font-size: 8px !important;
+
+    white-space: nowrap !important;
+
+    border-bottom: 1px solid #e5e7eb !important;
+  }
+
+  .table-card tbody tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .table-card tbody tr:last-child td {
+    border-bottom: none !important;
+  }
+
+  /* =====================================================
+     BADGES
+     ===================================================== */
+
+  .badge {
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    min-width: auto !important;
+
+    padding: 3px 6px !important;
+
+    border-radius: 20px !important;
+
+    font-size: 7px !important;
+
+    font-weight: 800 !important;
+  }
+
+  /* =====================================================
+     REMOVE SCREEN EFFECTS
+     ===================================================== */
+
+  .summary-card:hover,
+  .table-card tbody tr:hover {
+    transform: none !important;
+
+    background: transparent !important;
+  }
+
+  .table-body::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* =====================================================
+     PRINT FOOTER
+     ===================================================== */
+
+  .print-footer {
+    display: block !important;
+
+    margin-top: 10px !important;
+    padding-top: 6px !important;
+
+    border-top: 1px solid #dbe2ea !important;
+
+    text-align: center !important;
+
+    color: #94a3b8 !important;
+
+    font-size: 7.5px !important;
+  }
+}
