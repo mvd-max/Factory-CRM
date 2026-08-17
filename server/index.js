@@ -43,5 +43,5 @@ app.use("/backup", backupRoutes);
 app.use("/backup", backupRoutes);
 
 app.listen(5000, () => {
-  console.log("Server Running on http://localhost:5000");
+  console.log("Server Running on https://stellan-erp-api.onrender.com");
 });
