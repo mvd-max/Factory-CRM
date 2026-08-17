@@ -9,12 +9,13 @@
 
 .sidebar{
     width:260px;
-    background:#ffffff;
+    background:#fff;
     border-right:1px solid #E5E7EB;
     padding:20px;
     box-shadow:4px 0 18px rgba(0,0,0,.05);
     display:flex;
     flex-direction:column;
+    transition:.3s ease;
 }
 
 .logo-section{
@@ -25,15 +26,11 @@
 .sidebar-logo{
     width:210px;
     max-width:100%;
-    height:auto;
     display:block;
-    margin:0 auto;
+    margin:auto;
 }
 
-.logo-section h3{
-    display:none;
-}
-
+.logo-section h3,
 .logo-section p{
     display:none;
 }
@@ -63,16 +60,10 @@
     transition:.25s;
 }
 
-.menu a:hover{
-    background:#EF3B3A;
-    color:#fff;
-    transform:translateX(4px);
-}
-
+.menu a:hover,
 .menu a.active{
     background:#EF3B3A;
     color:#fff;
-    box-shadow:0 8px 18px rgba(239,59,58,.20);
 }
 
 /* ================= Logout ================= */
@@ -80,7 +71,7 @@
 .sidebar button{
     width:100%;
     margin-top:20px;
-    background:#EF4444 !important;
+    background:#EF4444;
     color:#fff;
     border:none;
     padding:12px;
@@ -95,6 +86,7 @@
     flex:1;
     display:flex;
     flex-direction:column;
+    overflow:hidden;
 }
 
 /* ================= Topbar ================= */
@@ -136,12 +128,6 @@
     border-radius:50%;
     background:#F3F4F6;
     cursor:pointer;
-    font-size:18px;
-}
-
-.notification-btn:hover{
-    background:#EF3B3A;
-    color:#fff;
 }
 
 .user-card{
@@ -151,7 +137,6 @@
     padding:8px 14px;
     border:1px solid #E5E7EB;
     border-radius:12px;
-    background:#fff;
 }
 
 .avatar{
@@ -161,22 +146,10 @@
     background:#2563EB;
     color:#fff;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     font-weight:700;
 }
-
-.user-card h4{
-    margin:0;
-    font-size:16px;
-}
-
-.user-card span{
-    color:#6B7280;
-    font-size:13px;
-}
-
-/* ================= Main Content ================= */
 
 .main-content{
     flex:1;
@@ -184,59 +157,72 @@
     overflow:auto;
 }
 
-/* ================= Scrollbar ================= */
+/* ================= Hamburger ================= */
 
-.main-content::-webkit-scrollbar{
-    width:8px;
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    font-size:28px;
+    cursor:pointer;
 }
 
-.main-content::-webkit-scrollbar-thumb{
-    background:#D1D5DB;
-    border-radius:10px;
-}
-
-/* ================= Responsive ================= */
+/* ================= Tablet ================= */
 
 @media(max-width:992px){
+    .sidebar{
+        width:220px;
+    }
 
-.sidebar{
-    width:220px;
+    .topbar h2{
+        font-size:24px;
+    }
 }
 
-.topbar h2{
-    font-size:24px;
-}
-
-}
+/* ================= Mobile ================= */
 
 @media(max-width:768px){
 
-.dashboard{
-    flex-direction:column;
-}
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-280px;
+        width:260px;
+        height:100vh;
+        z-index:999;
+        overflow-y:auto;
+    }
 
-.sidebar{
-    width:100%;
-    height:auto;
-    border-right:none;
-}
+    .sidebar.open{
+        left:0;
+    }
 
-.menu{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
+    .content{
+        width:100%;
+    }
 
-.menu li{
-    margin-bottom:0;
-}
+    .topbar{
+        height:auto;
+        padding:15px;
+    }
 
-.topbar{
-    padding:15px 20px;
-}
+    .menu-btn{
+        display:block;
+    }
 
-.main-content{
-    padding:20px;
-}
+    .topbar-right{
+        gap:10px;
+    }
 
+    .user-card{
+        padding:6px 10px;
+    }
+
+    .user-card h4{
+        font-size:14px;
+    }
+
+    .main-content{
+        padding:15px;
+    }
 }

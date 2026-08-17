@@ -8,6 +8,7 @@ export default function MainLayout() {
   const [user, setUser] = useState<any>(null);
   const [showNotifications, setShowNotifications] = useState(false);
   const [lowStockItems, setLowStockItems] = useState<any[]>([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const role = user?.role;
 
@@ -41,9 +42,19 @@ export default function MainLayout() {
     }
   };
 
+  const closeSidebar = () => setSidebarOpen(false);
+
   return (
     <div className="dashboard">
-      <aside className="sidebar">
+
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={closeSidebar}
+        />
+      )}
+
+      <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="logo-section">
           <img
             src="/stellan-logo.png"
@@ -56,93 +67,93 @@ export default function MainLayout() {
           <li>
             <NavLink
               to="/dashboard"
+              onClick={closeSidebar}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <span>🏠</span>
-              Dashboard
+              <span>🏠</span> Dashboard
             </NavLink>
           </li>
 
           <li>
             <NavLink
               to="/items"
+              onClick={closeSidebar}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <span>📦</span>
-              Items
+              <span>📦</span> Items
             </NavLink>
           </li>
 
           <li>
             <NavLink
               to="/suppliers"
+              onClick={closeSidebar}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <span>🏢</span>
-              Suppliers
+              <span>🏢</span> Suppliers
             </NavLink>
           </li>
 
           <li>
             <NavLink
               to="/purchases"
+              onClick={closeSidebar}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <span>🛒</span>
-              Purchases
+              <span>🛒</span> Purchases
             </NavLink>
           </li>
 
           <li>
             <NavLink
               to="/stockin"
+              onClick={closeSidebar}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <span>📥</span>
-              Stock In
+              <span>📥</span> Stock In
             </NavLink>
           </li>
 
           <li>
             <NavLink
               to="/stockout"
+              onClick={closeSidebar}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <span>📤</span>
-              Stock Out
+              <span>📤</span> Stock Out
             </NavLink>
           </li>
 
           <li>
             <NavLink
               to="/stock-history"
+              onClick={closeSidebar}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <span>📜</span>
-              Stock History
+              <span>📜</span> Stock History
             </NavLink>
           </li>
 
           {role === "admin" && (
-           <li>
-  <NavLink
-    to="/reports"
-    className={({ isActive }) => (isActive ? "active" : "")}
-  >
-    <span>📊</span>
-    Reports
-  </NavLink>
-</li>
+            <li>
+              <NavLink
+                to="/reports"
+                onClick={closeSidebar}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                <span>📊</span> Reports
+              </NavLink>
+            </li>
           )}
 
           {role === "admin" && (
             <li>
               <NavLink
                 to="/users"
+                onClick={closeSidebar}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <span>👤</span>
-                Users
+                <span>👤</span> Users
               </NavLink>
             </li>
           )}
@@ -151,115 +162,113 @@ export default function MainLayout() {
             <li>
               <NavLink
                 to="/settings"
+                onClick={closeSidebar}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <span>⚙️</span>
-                Settings
+                <span>⚙️</span> Settings
               </NavLink>
             </li>
           )}
         </ul>
 
         <div style={{ marginTop: "auto", padding: "20px" }}>
-          <button onClick={logout}>
-            🚪 Logout
-          </button>
+          <button onClick={logout}>🚪 Logout</button>
         </div>
       </aside>
 
       <main className="content">
-                <header className="topbar">
-          <div>
-            <h2>STELLAN ERP</h2>
-            <p className="top-subtitle">
-              Factory Inventory Management System
-            </p>
+        <header className="topbar">
+
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <button
+              className="menu-btn"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+            >
+              ☰
+            </button>
+
+            <div>
+              <h2>STELLAN ERP</h2>
+              <p className="top-subtitle">
+                Factory Inventory Management System
+              </p>
+            </div>
           </div>
 
           <div className="topbar-right">
-<div className="notification-wrapper">
 
-  <button
-    className="notification-btn"
-    onClick={() => setShowNotifications(!showNotifications)}
-  >
-    🔔
+            <div className="notification-wrapper">
+              <button
+                className="notification-btn"
+                onClick={() => setShowNotifications(!showNotifications)}
+              >
+                🔔
 
-    {lowStockItems.length > 0 && (
-      <span className="notification-badge">
-        {lowStockItems.length}
-      </span>
-    )}
-  </button>
+                {lowStockItems.length > 0 && (
+                  <span className="notification-badge">
+                    {lowStockItems.length}
+                  </span>
+                )}
+              </button>
 
-  {showNotifications && (
-    <div className="notification-popup">
+              {showNotifications && (
+                <div className="notification-popup">
 
-      <div className="notification-header">
-        🔔 Notifications
-      </div>
+                  <div className="notification-header">
+                    🔔 Notifications
+                  </div>
 
-      {lowStockItems.length === 0 ? (
+                  {lowStockItems.length === 0 ? (
+                    <div className="notification-empty">
+                      <div style={{ fontSize: "42px" }}>✅</div>
+                      <h3 style={{ margin: "12px 0 5px" }}>
+                        Everything Looks Good
+                      </h3>
+                      <p>No Low Stock Items</p>
+                    </div>
+                  ) : (
+                    <>
+                      {lowStockItems.map((item: any) => (
+                        <div
+                          key={item.id}
+                          className="notification-item"
+                        >
+                          <div>
+                            <strong>{item.itemName}</strong>
 
-        <div className="notification-empty">
-          <div style={{ fontSize: "42px" }}>✅</div>
+                            <div
+                              style={{
+                                fontSize: "12px",
+                                color: "#6B7280",
+                                marginTop: "4px",
+                              }}
+                            >
+                              Minimum : {item.minimumStock}
+                            </div>
+                          </div>
 
-          <h3 style={{ margin: "12px 0 5px" }}>
-            Everything Looks Good
-          </h3>
+                          <span className="stock-pill">
+                            {item.openingStock} PCS
+                          </span>
+                        </div>
+                      ))}
 
-          <p>No Low Stock Items</p>
-        </div>
-
-      ) : (
-
-        <>
-          {lowStockItems.map((item: any) => (
-            <div
-              key={item.id}
-              className="notification-item"
-            >
-              <div>
-                <strong>{item.itemName}</strong>
-
-                <div
-                  style={{
-                    fontSize: "12px",
-                    color: "#6B7280",
-                    marginTop: "4px",
-                  }}
-                >
-                  Minimum : {item.minimumStock}
+                      <div className="notification-footer">
+                        <button
+                          className="view-all-btn"
+                          onClick={() => {
+                            navigate("/items");
+                            setShowNotifications(false);
+                          }}
+                        >
+                          View All Items →
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </div>
-              </div>
-
-              <span className="stock-pill">
-                {item.openingStock} PCS
-              </span>
+              )}
             </div>
-          ))}
-
-          <div className="notification-footer">
-
-            <button
-              className="view-all-btn"
-              onClick={() => {
-                navigate("/items");
-                setShowNotifications(false);
-              }}
-            >
-              View All Items →
-            </button>
-
-          </div>
-        </>
-
-      )}
-
-    </div>
-  )}
-
-</div>
 
             <div className="user-card">
               <div className="avatar">
