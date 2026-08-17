@@ -1,317 +1,309 @@
-.dashboard{
-    display:flex;
-    height:100vh;
-    background:#F4F7FC;
-    overflow:hidden;
+/* ===== RESET ===== */
+*{
+  box-sizing:border-box;
 }
 
-/* ================= Sidebar ================= */
+html,body,#root{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+  overflow-x:hidden;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  background:#F4F7FC;
+}
+
+/* ===== LAYOUT ===== */
+
+.dashboard{
+  display:flex;
+  min-height:100vh;
+  background:#F4F7FC;
+}
+
+.content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
 
 .sidebar{
-    width:260px;
-    background:#fff;
-    border-right:1px solid #E5E7EB;
-    padding:20px;
-    box-shadow:4px 0 18px rgba(0,0,0,.05);
-    display:flex;
-    flex-direction:column;
-    transition:.3s ease;
+  width:270px;
+  background:#fff;
+  border-right:1px solid #ECEEF3;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  box-shadow:6px 0 24px rgba(0,0,0,.05);
+  transition:.3s;
+  z-index:1000;
 }
 
 .logo-section{
-    text-align:center;
-    margin-bottom:30px;
+  text-align:center;
+  margin-bottom:28px;
 }
 
 .sidebar-logo{
-    width:210px;
-    max-width:100%;
-    display:block;
-    margin:auto;
+  width:210px;
+  max-width:100%;
 }
 
 .logo-section h3,
 .logo-section p{
-    display:none;
+  display:none;
 }
 
-/* ================= Menu ================= */
+/* ===== MENU ===== */
 
 .menu{
-    list-style:none;
-    padding:0;
-    margin:0;
-    flex:1;
+  list-style:none;
+  padding:0;
+  margin:0;
+  flex:1;
 }
 
 .menu li{
-    margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .menu a{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:14px 18px;
-    border-radius:12px;
-    color:#374151;
-    text-decoration:none;
-    font-weight:600;
-    transition:.25s;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+  color:#374151;
+  padding:15px 18px;
+  border-radius:16px;
+  font-weight:600;
+  transition:.25s;
 }
 
-.menu a:hover,
+.menu a:hover{
+  background:#FFEAEA;
+  color:#EF3B3A;
+}
+
 .menu a.active{
-    background:#EF3B3A;
-    color:#fff;
-    box-shadow:0 8px 18px rgba(239,59,58,.20);
+  background:#EF3B3A;
+  color:#fff;
+  box-shadow:0 10px 24px rgba(239,59,58,.25);
 }
 
-/* ================= Logout ================= */
+/* ===== LOGOUT ===== */
 
 .sidebar button{
-    width:100%;
-    margin-top:20px;
-    background:#EF4444;
-    color:#fff;
-    border:none;
-    padding:12px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:600;
+  width:100%;
+  border:none;
+  background:#EF3B3A;
+  color:#fff;
+  padding:14px;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:700;
 }
 
-/* ================= Content ================= */
-
-.content{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    overflow:hidden;
-}
-
-/* ================= Topbar ================= */
+/* ===== TOPBAR ===== */
 
 .topbar{
-    height:72px;
-    background:#fff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 18px;
-    border-bottom:1px solid #E5E7EB;
-    box-shadow:0 3px 15px rgba(0,0,0,.05);
+  height:76px;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 22px;
+  border-bottom:1px solid #ECEEF3;
+  position:sticky;
+  top:0;
+  z-index:50;
 }
 
 .topbar h2{
-    margin:0;
-    font-size:24px;
-    font-weight:700;
-    color:#111827;
+  margin:0;
+  font-size:26px;
+  color:#0F172A;
 }
 
 .top-subtitle{
-    margin-top:4px;
-    color:#6B7280;
-    font-size:12px;
-    line-height:1.2;
+  margin-top:4px;
+  color:#64748B;
+  font-size:13px;
 }
 
 .topbar-right{
-    display:flex;
-    align-items:center;
-    gap:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-/* ================= Notification ================= */
+/* ===== MENU BUTTON ===== */
 
-.notification-btn{
-    width:42px;
-    height:42px;
-    border:none;
-    border-radius:50%;
-    background:#F3F4F6;
-    cursor:pointer;
-    font-size:18px;
-    transition:.2s;
+.menu-toggle{
+  display:none;
+  border:none;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+  color:#2563EB;
 }
 
-.notification-btn:hover{
-    background:#EF3B3A;
-    color:#fff;
-}
-
-/* ================= User Card ================= */
+/* ===== USER ===== */
 
 .user-card{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:6px 10px;
-    border:1px solid #E5E7EB;
-    border-radius:12px;
-    background:#fff;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  border:1px solid #E5E7EB;
+  border-radius:16px;
+  background:#fff;
 }
 
 .avatar{
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:#2563EB;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#2563EB;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
 }
 
-.user-card h4{
-    margin:0;
-    font-size:15px;
+/* ===== NOTIFICATION ===== */
+
+.notification-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#F3F4F6;
+  cursor:pointer;
 }
 
-.user-card span{
-    color:#6B7280;
-    font-size:11px;
-}
-
-/* ================= Main Content ================= */
+/* ===== MAIN ===== */
 
 .main-content{
-    flex:1;
-    padding:24px;
-    overflow:auto;
+  flex:1;
+  padding:24px;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 
-/* ================= Scrollbar ================= */
-
 .main-content::-webkit-scrollbar{
-    width:8px;
+  width:7px;
 }
 
 .main-content::-webkit-scrollbar-thumb{
-    background:#D1D5DB;
-    border-radius:10px;
+  background:#D1D5DB;
+  border-radius:10px;
 }
 
-/* ================= Hamburger ================= */
-
-.menu-toggle{
-    display:none;
-    background:none;
-    border:none;
-    font-size:30px;
-    color:#2563EB;
-    cursor:pointer;
-    padding:4px;
-}
-
-/* ================= Overlay ================= */
+/* ===== OVERLAY ===== */
 
 .sidebar-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    z-index:999;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  z-index:999;
 }
 
-/* ================= Tablet ================= */
+/* ================= MOBILE ================= */
 
-@media (max-width:992px){
-
-.sidebar{
-    width:220px;
-}
-
-.topbar h2{
-    font-size:22px;
-}
-
-}
-
-/* ================= Mobile ================= */
-
-@media (max-width:768px){
+@media(max-width:768px){
 
 .dashboard{
-    display:block;
+  display:block;
 }
 
 /* Sidebar */
 
 .sidebar{
-    position:fixed;
-    top:0;
-    left:-100%;
-    width:280px;
-    height:100vh;
-    background:#fff;
-    z-index:1000;
-    transition:left .3s ease;
-    overflow-y:auto;
-    padding:20px;
-    padding-bottom:90px;
+  position:fixed;
+  left:-100%;
+  top:0;
+  width:290px;
+  height:100dvh;
+  padding:20px;
+  overflow-y:auto;
+  transition:left .28s ease;
+  padding-bottom:calc(100px + env(safe-area-inset-bottom));
 }
 
 .sidebar.open{
-    left:0;
-}
-
-/* Menu */
-
-.menu{
-    display:block;
-}
-
-.menu li{
-    margin-bottom:8px;
+  left:0;
 }
 
 /* Topbar */
 
-.content{
-    width:100%;
+.menu-toggle{
+  display:block;
 }
 
 .topbar{
-    height:auto;
-    padding:12px;
+  height:auto;
+  padding:
+    calc(12px + env(safe-area-inset-top))
+    16px
+    12px
+    16px;
+}
+
+.topbar h2{
+  font-size:22px;
+}
+
+.top-subtitle{
+  font-size:12px;
 }
 
 .topbar-right{
-    gap:8px;
-}
-
-.menu-toggle{
-    display:block;
+  gap:8px;
 }
 
 /* User */
 
 .user-card{
-    padding:6px 8px;
+  padding:6px 8px;
 }
 
 .user-card h4{
-    font-size:14px;
+  font-size:14px;
 }
 
 .user-card span{
-    font-size:10px;
+  font-size:11px;
+}
+
+.avatar{
+  width:36px;
+  height:36px;
 }
 
 /* Main */
 
 .main-content{
-    padding:16px;
+  padding:18px;
+  padding-bottom:calc(30px + env(safe-area-inset-bottom));
+  overflow:visible;
 }
 
 /* Logout */
 
 .sidebar button{
-    position:sticky;
-    bottom:20px;
-    width:100%;
+  position:sticky;
+  bottom:20px;
+}
+
+/* Menu */
+
+.menu a{
+  padding:16px;
+  font-size:17px;
 }
 
 }
