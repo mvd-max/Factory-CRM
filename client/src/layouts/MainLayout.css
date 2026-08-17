@@ -64,6 +64,7 @@
 .menu a.active{
     background:#EF3B3A;
     color:#fff;
+    box-shadow:0 8px 18px rgba(239,59,58,.20);
 }
 
 /* ================= Logout ================= */
@@ -92,34 +93,37 @@
 /* ================= Topbar ================= */
 
 .topbar{
-    height:82px;
+    height:72px;
     background:#fff;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 35px;
+    padding:12px 18px;
     border-bottom:1px solid #E5E7EB;
     box-shadow:0 3px 15px rgba(0,0,0,.05);
 }
 
 .topbar h2{
     margin:0;
-    font-size:30px;
+    font-size:24px;
     font-weight:700;
     color:#111827;
 }
 
 .top-subtitle{
-    margin-top:5px;
+    margin-top:4px;
     color:#6B7280;
-    font-size:14px;
+    font-size:12px;
+    line-height:1.2;
 }
 
 .topbar-right{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:12px;
 }
+
+/* ================= Notification ================= */
 
 .notification-btn{
     width:42px;
@@ -128,20 +132,30 @@
     border-radius:50%;
     background:#F3F4F6;
     cursor:pointer;
+    font-size:18px;
+    transition:.2s;
 }
+
+.notification-btn:hover{
+    background:#EF3B3A;
+    color:#fff;
+}
+
+/* ================= User Card ================= */
 
 .user-card{
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:8px 14px;
+    gap:10px;
+    padding:6px 10px;
     border:1px solid #E5E7EB;
     border-radius:12px;
+    background:#fff;
 }
 
 .avatar{
-    width:42px;
-    height:42px;
+    width:36px;
+    height:36px;
     border-radius:50%;
     background:#2563EB;
     color:#fff;
@@ -151,10 +165,33 @@
     font-weight:700;
 }
 
+.user-card h4{
+    margin:0;
+    font-size:15px;
+}
+
+.user-card span{
+    color:#6B7280;
+    font-size:11px;
+}
+
+/* ================= Main Content ================= */
+
 .main-content{
     flex:1;
-    padding:30px;
+    padding:24px;
     overflow:auto;
+}
+
+/* ================= Scrollbar ================= */
+
+.main-content::-webkit-scrollbar{
+    width:8px;
+}
+
+.main-content::-webkit-scrollbar-thumb{
+    background:#D1D5DB;
+    border-radius:10px;
 }
 
 /* ================= Hamburger ================= */
@@ -163,16 +200,44 @@
     display:none;
     background:none;
     border:none;
-    font-size:28px;
+    font-size:30px;
+    color:#2563EB;
     cursor:pointer;
+    padding:4px;
 }
+
+/* ================= Overlay ================= */
+
+.sidebar-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:999;
+}
+
 /* ================= Tablet ================= */
 
-@media(max-width:768px){
+@media (max-width:992px){
+
+.sidebar{
+    width:220px;
+}
+
+.topbar h2{
+    font-size:22px;
+}
+
+}
+
+/* ================= Mobile ================= */
+
+@media (max-width:768px){
 
 .dashboard{
     display:block;
 }
+
+/* Sidebar */
 
 .sidebar{
     position:fixed;
@@ -182,42 +247,71 @@
     height:100vh;
     background:#fff;
     z-index:1000;
-    transition:.3s;
+    transition:left .3s ease;
     overflow-y:auto;
-    padding-bottom:80px;
+    padding:20px;
+    padding-bottom:90px;
 }
 
 .sidebar.open{
     left:0;
 }
 
+/* Menu */
+
+.menu{
+    display:block;
+}
+
+.menu li{
+    margin-bottom:8px;
+}
+
+/* Topbar */
+
 .content{
     width:100%;
 }
 
 .topbar{
-    padding:15px;
+    height:auto;
+    padding:12px;
 }
+
+.topbar-right{
+    gap:8px;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+/* User */
+
+.user-card{
+    padding:6px 8px;
+}
+
+.user-card h4{
+    font-size:14px;
+}
+
+.user-card span{
+    font-size:10px;
+}
+
+/* Main */
 
 .main-content{
     padding:16px;
 }
 
-.menu-toggle{
-    display:block;
-}
-.menu-toggle{
-    display:block;
-}
+/* Logout */
+
 .sidebar button{
     position:sticky;
     bottom:20px;
     width:100%;
 }
-.sidebar-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    z-index:999;
-}
+
 }
