@@ -29,7 +29,7 @@ export default function Sales() {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/sales"
+        "https://stellan-erp-api.onrender.com/sales"
       );
 
       if (!response.ok) {
@@ -62,7 +62,7 @@ export default function Sales() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/sales/${id}`,
+        `https://stellan-erp-api.onrender.com/sales/${id}`,
         {
           method: "DELETE",
           headers: {

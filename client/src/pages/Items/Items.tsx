@@ -33,7 +33,7 @@ const Items = () => {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/items");
+      const response = await fetch("https://stellan-erp-api.onrender.com/items");
 
       if (!response.ok) {
         throw new Error("Failed to fetch items");
@@ -58,7 +58,7 @@ const Items = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/items/${id}`,
+        `https://stellan-erp-api.onrender.com/items/${id}`,
         {
           method: "DELETE",
         }

@@ -29,7 +29,7 @@ export default function AddCustomer() {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/customers", {
+    const res = await fetch("https://stellan-erp-api.onrender.com/customers", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

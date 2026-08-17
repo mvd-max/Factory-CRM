@@ -21,7 +21,7 @@ export default function MainLayout() {
 
     setUser(JSON.parse(savedUser));
 
-    fetch("http://localhost:5000/items")
+    fetch("https://stellan-erp-api.onrender.com/items")
       .then((res) => res.json())
       .then((data) => {
         const lowStock = data.filter(

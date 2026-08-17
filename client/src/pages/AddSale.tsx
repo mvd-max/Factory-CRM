@@ -21,10 +21,10 @@ sgst:9,
 const [companies,setCompanies]=useState<Company[]>([]);
 const [models,setModels]=useState<Model[]>([]);
 
-useEffect(()=>{fetch("http://localhost:5000/items/companies").then(r=>r.json()).then(setCompanies)},[]);
+useEffect(()=>{fetch("https://stellan-erp-api.onrender.com/items/companies").then(r=>r.json()).then(setCompanies)},[]);
 useEffect(()=>{
 if(!form.company){setModels([]);return;}
-fetch(`http://localhost:5000/items/models/${encodeURIComponent(form.company)}`).then(r=>r.json()).then(setModels);
+fetch(`https://stellan-erp-api.onrender.com/items/models/${encodeURIComponent(form.company)}`).then(r=>r.json()).then(setModels);
 },[form.company]);
 
 const subtotal=form.qty*form.price;
@@ -32,7 +32,7 @@ const taxable=subtotal-(subtotal*form.discount/100);
 const total=taxable+(taxable*form.cgst/100)+(taxable*form.sgst/100);
 
 async function handleSave(){
-const res=await fetch("http://localhost:5000/sales",{
+const res=await fetch("https://stellan-erp-api.onrender.com/sales",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({

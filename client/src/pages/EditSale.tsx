@@ -26,18 +26,18 @@ sgst:9,
 });
 
 useEffect(()=>{
-fetch("http://localhost:5000/items/companies").then(r=>r.json()).then(setCompanies);
+fetch("https://stellan-erp-api.onrender.com/items/companies").then(r=>r.json()).then(setCompanies);
 },[]);
 
 useEffect(()=>{
 if(!form.company) return;
-fetch(`http://localhost:5000/items/models/${encodeURIComponent(form.company)}`)
+fetch(`https://stellan-erp-api.onrender.com/items/models/${encodeURIComponent(form.company)}`)
 .then(r=>r.json())
 .then(setModels);
 },[form.company]);
 
 useEffect(()=>{
-fetch(`http://localhost:5000/sales/${id}`)
+fetch(`https://stellan-erp-api.onrender.com/sales/${id}`)
 .then(r=>r.json())
 .then(data=>{
 setForm({
@@ -62,7 +62,7 @@ const taxable=subtotal-(subtotal*form.discount/100);
 const total=taxable+(taxable*form.cgst/100)+(taxable*form.sgst/100);
 
 async function handleUpdate(){
-const res=await fetch(`http://localhost:5000/sales/${id}`,{
+const res=await fetch(`https://stellan-erp-api.onrender.com/sales/${id}`,{
 method:"PUT",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({

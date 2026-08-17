@@ -20,7 +20,7 @@ export default function EditCustomer() {
   });
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/customers/${id}`)
+    fetch(`https://stellan-erp-api.onrender.com/customers/${id}`)
       .then(r=>r.json())
       .then(setForm);
   },[id]);
@@ -29,7 +29,7 @@ export default function EditCustomer() {
 
   const update=async(e:any)=>{
     e.preventDefault();
-    const res=await fetch(`http://localhost:5000/customers/${id}`,{
+    const res=await fetch(`https://stellan-erp-api.onrender.com/customers/${id}`,{
       method:"PUT",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(form)

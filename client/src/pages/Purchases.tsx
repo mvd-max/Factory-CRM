@@ -83,7 +83,7 @@ const ReportsV2 = () => {
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:5000/reports", {
+      const res = await fetch("https://stellan-erp-api.onrender.com/reports", {
         headers: {
           "x-user-role": user.role || "admin",
         },
@@ -120,7 +120,7 @@ const ReportsV2 = () => {
 
   const loadItems = async () => {
     try {
-      const res = await fetch("http://localhost:5000/items");
+      const res = await fetch("https://stellan-erp-api.onrender.com/items");
 
       if (!res.ok) {
         throw new Error("Failed to load items");

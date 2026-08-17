@@ -40,7 +40,7 @@ export default function Settings() {
   // ================= LOAD SETTINGS =================
 
   useEffect(() => {
-    fetch("http://localhost:5000/settings", {
+    fetch("https://stellan-erp-api.onrender.com/settings", {
       headers: {
         "x-user-role": user.role,
       },
@@ -86,7 +86,7 @@ export default function Settings() {
       setSaving(true);
 
       const res = await fetch(
-        "http://localhost:5000/settings",
+        "https://stellan-erp-api.onrender.com/settings",
         {
           method: "PUT",
           headers: {
@@ -145,7 +145,7 @@ export default function Settings() {
       setPasswordLoading(true);
 
       const res = await fetch(
-        "http://localhost:5000/users/password-change",
+        "https://stellan-erp-api.onrender.com/users/password-change",
         {
           method: "POST",
           headers: {
@@ -189,7 +189,7 @@ export default function Settings() {
       setBackupLoading(true);
 
       const res = await fetch(
-        "http://localhost:5000/backup/download",
+        "https://stellan-erp-api.onrender.com/backup/download",
         {
           method: "GET",
           headers: {

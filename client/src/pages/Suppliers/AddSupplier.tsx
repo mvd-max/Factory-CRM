@@ -28,7 +28,7 @@ const AddSupplier = () => {
   e.preventDefault();
 
   try {
-    const response = await fetch("http://localhost:5000/suppliers", {
+    const response = await fetch("https://stellan-erp-api.onrender.com/suppliers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

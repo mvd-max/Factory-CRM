@@ -20,7 +20,7 @@
     minimumStock: "",
   });
     useEffect(() => {
-      fetch(`http://localhost:5000/items/${id}`)
+      fetch(`https://stellan-erp-api.onrender.com/items/${id}`)
         .then((res) => res.json())
         .then((data) => {
           setFormData({
@@ -50,7 +50,7 @@
 
     const handleUpdate = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/items/${id}`, {
+        const response = await fetch(`https://stellan-erp-api.onrender.com/items/${id}`, {
           method: "PUT",
           headers: {
   "Content-Type": "application/json",

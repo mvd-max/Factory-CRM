@@ -44,7 +44,7 @@ export default function StockOut() {
       setLoading(true);
 
       const res = await fetch(
-        "http://localhost:5000/items"
+        "https://stellan-erp-api.onrender.com/items"
       );
 
       const data = await res.json();
@@ -72,7 +72,7 @@ export default function StockOut() {
     );
         try {
       const res = await fetch(
-        "http://localhost:5000/stock/out",
+        "https://stellan-erp-api.onrender.com/stock/out",
         {
           method: "POST",
           headers: {

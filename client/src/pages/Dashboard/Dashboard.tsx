@@ -75,7 +75,7 @@ const Dashboard = () => {
   const fetchDashboard = async () => {
   try {
     // Load Items
-    const res = await fetch("http://localhost:5000/items");
+    const res = await fetch("https://stellan-erp-api.onrender.compi.onrender.com/items");
 
     if (!res.ok) {
       throw new Error("Failed to fetch items");
@@ -85,7 +85,7 @@ const Dashboard = () => {
     setItems(itemsData);
 
     // Load Dashboard Report
-    const reportRes = await fetch("http://localhost:5000/reports", {
+    const reportRes = await fetch("https://stellan-erp-api.onrender.com/reports", {
   headers: {
     "x-user-role": user.role,
   },

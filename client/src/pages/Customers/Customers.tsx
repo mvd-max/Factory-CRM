@@ -24,7 +24,7 @@ const user =
   const loadCustomers = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/customers?search=${encodeURIComponent(search)}`
+        `https://stellan-erp-api.onrender.compi.onrender.com/customers?search=${encodeURIComponent(search)}`
       );
       const data = await res.json();
       setCustomers(data);
@@ -41,7 +41,7 @@ const user =
     if (!window.confirm("Are you sure you want to delete this customer?"))
       return;
 
-    await fetch(`http://localhost:5000/customers/${id}`, {
+    await fetch(`https://stellan-erp-api.onrender.com/customers/${id}`, {
   method: "DELETE",
   headers: {
     "x-user-role": user.role,

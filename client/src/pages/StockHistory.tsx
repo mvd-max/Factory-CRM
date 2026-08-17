@@ -32,7 +32,7 @@ const totalQty = history.reduce(
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:5000/stock-history");
+      const res = await fetch("https://stellan-erp-api.onrender.compi.onrender.com/stock-history");
       const data = await res.json();
 
       setHistory(data);

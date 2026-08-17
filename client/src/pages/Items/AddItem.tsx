@@ -29,7 +29,7 @@ const user = JSON.parse(
 
   const handleSave = async () => {
   try {
-    const response = await fetch("http://localhost:5000/items", {
+    const response = await fetch("https://stellan-erp-api.onrender.com/items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

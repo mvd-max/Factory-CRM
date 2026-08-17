@@ -94,7 +94,7 @@ export default function Users() {
       );
 
       const res = await fetch(
-        "http://localhost:5000/users",
+        "https://stellan-erp-api.onrender.com/users",
         {
           headers: {
             "x-user-role": currentUser.role,
@@ -168,7 +168,7 @@ export default function Users() {
       );
 
       const res = await fetch(
-        `http://localhost:5000/users/${id}`,
+        `https://stellan-erp-api.onrender.com/users/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -211,8 +211,8 @@ export default function Users() {
 
       const url =
         editingId === null
-          ? "http://localhost:5000/users"
-          : `http://localhost:5000/users/${editingId}`;
+          ? "https://stellan-erp-api.onrender.com/users"
+          : `https://stellan-erp-api.onrender.com/users/${editingId}`;
 
       const method =
         editingId === null

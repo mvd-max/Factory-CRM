@@ -83,10 +83,10 @@ const ReportsV2 = () => {
       };
 
       const [reportRes, itemsRes] = await Promise.all([
-        fetch("http://localhost:5000/reports", {
+        fetch("https://stellan-erp-api.onrender.com/reports", {
           headers,
         }),
-        fetch("http://localhost:5000/items", {
+        fetch("https://stellan-erp-api.onrender.com/items", {
           headers,
         }),
       ]);

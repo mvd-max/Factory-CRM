@@ -53,7 +53,7 @@ export default function EditPurchase() {
         setLoading(true);
 
         const res = await fetch(
-          `http://localhost:5000/purchases/${id}`
+          `https://stellan-erp-api.onrender.compi.onrender.com/purchases/${id}`
         );
 
         const data = await res.json();
@@ -90,7 +90,7 @@ export default function EditPurchase() {
   // ================= LOAD SUPPLIERS =================
 
   useEffect(() => {
-    fetch("http://localhost:5000/suppliers")
+    fetch("https://stellan-erp-api.onrender.compi.onrender.com/suppliers")
       .then((res) => res.json())
       .then((data) => setSuppliers(data))
       .catch((err) => console.error(err));
@@ -99,7 +99,7 @@ export default function EditPurchase() {
   // ================= LOAD COMPANIES =================
 
   useEffect(() => {
-    fetch("http://localhost:5000/items/companies")
+    fetch("https://stellan-erp-api.onrender.com/items/companies")
       .then((res) => res.json())
       .then((data) => setCompanies(data))
       .catch((err) => console.error(err));
@@ -114,7 +114,7 @@ export default function EditPurchase() {
     }
 
     fetch(
-      `http://localhost:5000/items/models/${encodeURIComponent(
+      `https://stellan-erp-api.onrender.com/items/models/${encodeURIComponent(
         form.company
       )}`
     )
@@ -161,7 +161,7 @@ export default function EditPurchase() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/purchases/${id}`,
+        `https://stellan-erp-api.onrender.com/purchases/${id}`,
         {
           method: "PUT",
           headers: {

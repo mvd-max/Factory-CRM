@@ -5,12 +5,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/items": "http://localhost:5000",
-      "/reports": "http://localhost:5000",
-      "/suppliers": "http://localhost:5000",
-      "/purchases": "http://localhost:5000",
-      "/stock": "http://localhost:5000",
-      "/settings": "http://localhost:5000",
+      "/items": "https://stellan-erp-api.onrender.com",
+      "/reports": "https://stellan-erp-api.onrender.com",
+      "/suppliers": "https://stellan-erp-api.onrender.com",
+      "/purchases": "https://stellan-erp-api.onrender.com",
+      "/stock": "https://stellan-erp-api.onrender.com",
+      "/settings": "https://stellan-erp-api.onrender.com",
     },
   },
 });

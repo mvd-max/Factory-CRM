@@ -33,7 +33,7 @@ const loadSuppliers = async () => {
   try {
     setLoading(true);
 
-    const res = await fetch("http://localhost:5000/suppliers");
+    const res = await fetch("https://stellan-erp-api.onrender.com/suppliers");
 
     if (!res.ok) {
       throw new Error("Failed to fetch suppliers");
@@ -60,7 +60,7 @@ const loadSuppliers = async () => {
   if (!window.confirm("Delete this supplier?")) return;
 
   try {
-    await fetch(`http://localhost:5000/suppliers/${id}`, {
+    await fetch(`https://stellan-erp-api.onrender.com/suppliers/${id}`, {
       method: "DELETE",
       headers: {
         "x-user-role": user.role,
