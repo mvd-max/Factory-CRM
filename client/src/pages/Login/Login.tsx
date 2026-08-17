@@ -15,7 +15,9 @@ const Login = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/users/login", {
+      const API = import.meta.env.VITE_API_URL || "https://stellan-erp-api.onrender.com";
+
+const res = await fetch(`${API}/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
