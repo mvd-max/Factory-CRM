@@ -24,7 +24,7 @@ const user =
   const loadCustomers = async () => {
     try {
       const res = await fetch(
-        `https://stellan-erp-api.onrender.compi.onrender.com/customers?search=${encodeURIComponent(search)}`
+        `https://stellan-erp-api.onrender.com/customers?search=${encodeURIComponent(search)}`
       );
       const data = await res.json();
       setCustomers(data);

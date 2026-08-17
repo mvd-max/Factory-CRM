@@ -53,7 +53,7 @@ export default function EditPurchase() {
         setLoading(true);
 
         const res = await fetch(
-          `https://stellan-erp-api.onrender.compi.onrender.com/purchases/${id}`
+          `https://stellan-erp-api.onrender.com/purchases/${id}`
         );
 
         const data = await res.json();
@@ -90,7 +90,7 @@ export default function EditPurchase() {
   // ================= LOAD SUPPLIERS =================
 
   useEffect(() => {
-    fetch("https://stellan-erp-api.onrender.compi.onrender.com/suppliers")
+    fetch("https://stellan-erp-api.onrender.com/suppliers")
       .then((res) => res.json())
       .then((data) => setSuppliers(data))
       .catch((err) => console.error(err));
