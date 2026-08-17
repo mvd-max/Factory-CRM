@@ -20,7 +20,8 @@ export default function MainLayout() {
       return;
     }
 
-    setUser(JSON.parse(savedUser));
+    const parsedUser = JSON.parse(savedUser);
+    setUser(parsedUser);
 
     fetch("https://stellan-erp-api.onrender.com/items")
       .then((res) => res.json())
@@ -28,7 +29,6 @@ export default function MainLayout() {
         const lowStock = data.filter(
           (item: any) => item.openingStock <= item.minimumStock
         );
-
         setLowStockItems(lowStock);
       })
       .catch(console.error);
@@ -46,7 +46,6 @@ export default function MainLayout() {
 
   return (
     <div className="dashboard">
-
       {sidebarOpen && (
         <div
           className="sidebar-overlay"
@@ -65,82 +64,50 @@ export default function MainLayout() {
 
         <ul className="menu">
           <li>
-            <NavLink
-              to="/dashboard"
-              onClick={closeSidebar}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/dashboard" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
               <span>🏠</span> Dashboard
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              to="/items"
-              onClick={closeSidebar}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/items" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
               <span>📦</span> Items
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              to="/suppliers"
-              onClick={closeSidebar}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/suppliers" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
               <span>🏢</span> Suppliers
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              to="/purchases"
-              onClick={closeSidebar}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/purchases" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
               <span>🛒</span> Purchases
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              to="/stockin"
-              onClick={closeSidebar}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/stockin" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
               <span>📥</span> Stock In
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              to="/stockout"
-              onClick={closeSidebar}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/stockout" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
               <span>📤</span> Stock Out
             </NavLink>
           </li>
 
           <li>
-            <NavLink
-              to="/stock-history"
-              onClick={closeSidebar}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            <NavLink to="/stock-history" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
               <span>📜</span> Stock History
             </NavLink>
           </li>
 
           {role === "admin" && (
             <li>
-              <NavLink
-                to="/reports"
-                onClick={closeSidebar}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
+              <NavLink to="/reports" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
                 <span>📊</span> Reports
               </NavLink>
             </li>
@@ -148,11 +115,7 @@ export default function MainLayout() {
 
           {role === "admin" && (
             <li>
-              <NavLink
-                to="/users"
-                onClick={closeSidebar}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
+              <NavLink to="/users" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
                 <span>👤</span> Users
               </NavLink>
             </li>
@@ -160,11 +123,7 @@ export default function MainLayout() {
 
           {role === "admin" && (
             <li>
-              <NavLink
-                to="/settings"
-                onClick={closeSidebar}
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
+              <NavLink to="/settings" onClick={closeSidebar} className={({ isActive }) => (isActive ? "active" : "")}>
                 <span>⚙️</span> Settings
               </NavLink>
             </li>
@@ -178,10 +137,9 @@ export default function MainLayout() {
 
       <main className="content">
         <header className="topbar">
-
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
-              className="menu-btn"
+              className="menu-toggle"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               ☰
@@ -196,7 +154,6 @@ export default function MainLayout() {
           </div>
 
           <div className="topbar-right">
-
             <div className="notification-wrapper">
               <button
                 className="notification-btn"
@@ -213,7 +170,6 @@ export default function MainLayout() {
 
               {showNotifications && (
                 <div className="notification-popup">
-
                   <div className="notification-header">
                     🔔 Notifications
                   </div>
@@ -229,10 +185,7 @@ export default function MainLayout() {
                   ) : (
                     <>
                       {lowStockItems.map((item: any) => (
-                        <div
-                          key={item.id}
-                          className="notification-item"
-                        >
+                        <div key={item.id} className="notification-item">
                           <div>
                             <strong>{item.itemName}</strong>
 
@@ -259,6 +212,7 @@ export default function MainLayout() {
                           onClick={() => {
                             navigate("/items");
                             setShowNotifications(false);
+                            closeSidebar();
                           }}
                         >
                           View All Items →
@@ -272,7 +226,7 @@ export default function MainLayout() {
 
             <div className="user-card">
               <div className="avatar">
-                {user?.full_name?.charAt(0).toUpperCase()}
+                {user?.full_name?.charAt(0)?.toUpperCase() || "A"}
               </div>
 
               <div>
@@ -280,7 +234,6 @@ export default function MainLayout() {
                 <span>{user?.role}</span>
               </div>
             </div>
-
           </div>
         </header>
 

@@ -159,70 +159,65 @@
 
 /* ================= Hamburger ================= */
 
-.menu-btn{
+.menu-toggle{
     display:none;
     background:none;
     border:none;
     font-size:28px;
     cursor:pointer;
 }
-
 /* ================= Tablet ================= */
-
-@media(max-width:992px){
-    .sidebar{
-        width:220px;
-    }
-
-    .topbar h2{
-        font-size:24px;
-    }
-}
-
-/* ================= Mobile ================= */
 
 @media(max-width:768px){
 
-    .sidebar{
-        position:fixed;
-        top:0;
-        left:-280px;
-        width:260px;
-        height:100vh;
-        z-index:999;
-        overflow-y:auto;
-    }
+.dashboard{
+    display:block;
+}
 
-    .sidebar.open{
-        left:0;
-    }
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:280px;
+    height:100vh;
+    background:#fff;
+    z-index:1000;
+    transition:.3s;
+    overflow-y:auto;
+    padding-bottom:80px;
+}
 
-    .content{
-        width:100%;
-    }
+.sidebar.open{
+    left:0;
+}
 
-    .topbar{
-        height:auto;
-        padding:15px;
-    }
+.content{
+    width:100%;
+}
 
-    .menu-btn{
-        display:block;
-    }
+.topbar{
+    padding:15px;
+}
 
-    .topbar-right{
-        gap:10px;
-    }
+.main-content{
+    padding:16px;
+}
 
-    .user-card{
-        padding:6px 10px;
-    }
-
-    .user-card h4{
-        font-size:14px;
-    }
-
-    .main-content{
-        padding:15px;
-    }
+.menu-toggle{
+    display:block;
+}
+.menu-toggle{
+    display:block;
+}
+.sidebar button{
+    position:sticky;
+    bottom:20px;
+    width:100%;
+}
+.sidebar-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:999;
+}
 }
